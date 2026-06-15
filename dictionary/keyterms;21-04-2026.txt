@@ -1,5 +1,3 @@
-"Condumex"
-"Alan Pluma"
 "Sangoma"   
 "DTMF"
 "PBX"
