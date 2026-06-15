@@ -1,0 +1,10 @@
+{
+    "condumex": "Condumex",
+    "dumex": "Condumex",
+    "con dumec": "Condumex",
+    "alan pluma": "Alan Pluma",
+    "sangoma": "Sangoma",
+    "dtmf": "DTMF",
+    "pbx": "PBX",
+    "inva": "INVA"
+}

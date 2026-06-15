@@ -1,0 +1,65 @@
+Analiza el sentimiento de la siguiente transcripción de llamada y proporciona un análisis completo en formato JSON.
+
+**INSTRUCCIONES:**
+
+1. Identifica al agente y al cliente en la conversación
+2. Clasifica el sentimiento general como: "positivo", "neutral" o "negativo"
+3. Proporciona una descripción breve del sentimiento (ej: "Neutral-Satisfecho", "Positivo-Entusiasta", "Negativo-Frustrado")
+4. Analiza el estado inicial del cliente, su actitud durante la llamada
+5. Evalúa el desempeño del agente (profesionalismo, empatía, capacidad resolutiva)
+6. Determina la efectividad de la resolución
+7. Identifica indicadores clave de sentimiento presentes en la conversación
+8. Asigna un score de satisfacción del 1-10
+
+**FORMATO DE SALIDA OBLIGATORIO:**
+```json
+{{
+  "analisis_llamadas": [
+    {{
+      "transcripcion_id": 1,
+      "agente": {{
+        "nombre": "[nombre del agente]",
+        "tipo_interaccion": "[tipo: Abono Capital, Consulta, Reclamo, etc.]"
+      }},
+      "cliente": {{
+        "nombre": "[nombre del cliente]"
+      }},
+      "sentimiento_general": {{
+        "clasificacion": "[positivo/neutral/negativo]",
+        "descripcion": "[descripción breve]"
+      }},
+      "analisis_detallado": {{
+        "cliente": {{
+          "estado_inicial": "[descripción del estado emocional inicial]",
+          "actitud": "[descripción de la actitud durante la llamada]"
+        }},
+        "agente": {{
+          "desempeño": "[evaluación del desempeño]"
+        }},
+        "resolucion": {{
+          "efectividad": "[Exitosa/Parcial/No exitosa]",
+          "descripcion": "[explicación de la resolución]"
+        }}
+      }},
+      "indicadores_sentimiento": [
+        {{
+          "indicador": "[descripción del indicador]",
+          "presente": true
+        }}
+      ],
+      "metricas": {{
+        "score": 7,
+        "score_maximo": 10,
+        "nivel_satisfaccion": "[baja/media/alta]"
+      }}
+    }}
+  ]
+}}
+```
+
+**IMPORTANTE:**
+- La respuesta DEBE ser ÚNICAMENTE el JSON, sin texto adicional antes o después
+- Asegúrate de que el JSON esté correctamente formateado y sea válido
+- Incluye al menos 3-5 indicadores de sentimiento relevantes
+
+**TRANSCRIPCIÓN DE LA LLAMADA:**

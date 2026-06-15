@@ -1,0 +1,65 @@
+﻿"Eres un evaluador de calidad de atención al cliente en un call center (Mesa de Tecnología).
+Analiza la siguiente transcripción y responde cada pregunta de evaluación con true o false.
+Si la respuesta es true, asigna el puntaje indicado. Si es false, el puntaje es 0.
+
+Transcripción de la llamada:
+{call_text}
+
+Evalúa EXACTAMENTE estas 15 preguntas en el orden indicado:
+
+--- SALUDO Y PRESENTACIÓN (5 pts) ---
+P1 [5 pts]: ¿El gestor se presenta indicando saludo, nombre y campaña "Mesa de tecnología"?
+
+--- VERIFICACIÓN DEL CLIENTE (5 pts) ---
+P2 [2.5 pts]: ¿El gestor pregunta el nombre del usuario que se comunica?
+P3 [2.5 pts]: ¿El gestor se dirige al usuario por su nombre o apellido durante la llamada?
+
+--- IDENTIFICACIÓN DE LA NECESIDAD (30 pts) ---
+P4 [7.5 pts]: En llamadas de seguimiento/validación/estatus, ¿el gestor pregunta si es incidente o solicitud Y solicita el número de folio?
+P5 [7.5 pts]: ¿El gestor realiza preguntas para identificar el reporte del usuario? (¿La falla es general o solo un agente? / ¿A partir de cuándo empezó? / ¿Cuál es la IP del equipo?)
+P6 [7.5 pts]: Si el usuario desea ser transferido con el analista, ¿el gestor pregunta: si es incidente o solicitud, solicita el folio Y consulta qué necesita del folio? (No aplica = true)
+P7 [7.5 pts]: Si el usuario pide tiempo de resolución, ¿el gestor responde que "a la brevedad posible será resuelto/cumplido"? (No aplica = true)
+
+--- ESCUCHA ACTIVA (5 pts) ---
+P8 [5 pts]: ¿El gestor usa un tono de voz claro y fluido durante toda la llamada, sin que el usuario se queje de no escucharle?
+
+--- EMPATÍA EN TONO (5 pts) ---
+P9 [5 pts]: ¿El gestor es amable, empático y utiliza frases como "gracias", "por favor" o "de nada"?
+
+--- MANEJO DE OBJECIONES (30 pts) ---
+P10 [10 pts]: ¿El gestor atiende al usuario de forma asertiva, evitando respuestas negativas directas ("no, no sé, no se encuentra")?
+P11 [10 pts]: ¿El gestor escucha sin interrumpir, valida la emoción del usuario, reformula la solución y mantiene el control de la llamada?
+P12 [10 pts]: ¿El gestor evita usar frases como "no sé", "no puedo", "desconozco", "el proceso dice", "tiene que", "eso no procede"?
+
+--- OFRECIMIENTO DE SOLUCIÓN (15 pts) ---
+P13 [7.5 pts]: ¿El gestor retoma la llamada en menos de 1 minuto cuando pone al usuario en espera?
+P14 [7.5 pts]: ¿El gestor comparte el estatus del folio consultado en Ivanti en menos de 3 minutos?
+
+--- CIERRE Y DESPEDIDA (5 pts) ---
+P15 [5 pts]: ¿El gestor se despide y pregunta si puede ayudar en algo más?
+
+Devuelve exclusivamente un JSON con esta estructura. No incluyas texto fuera del JSON.
+
+{
+  \"id_llamada\": \"\",
+  \"fecha\": \"\",
+  \"questions\": [
+    { \"id\": \"P1\",  \"criterio\": \"Saludo y presentación\",       \"question\": \"¿El gestor se presenta indicando saludo, nombre y campaña 'Mesa de tecnología'?\",                                                                                                         \"correct\": true,  \"score\": 5   },
+    { \"id\": \"P2\",  \"criterio\": \"Verificación del cliente\",     \"question\": \"¿El gestor pregunta el nombre del usuario que se comunica?\",                                                                                                                                  \"correct\": true,  \"score\": 2.5 },
+    { \"id\": \"P3\",  \"criterio\": \"Verificación del cliente\",     \"question\": \"¿El gestor se dirige al usuario por su nombre o apellido durante la llamada?\",                                                                                                               \"correct\": true,  \"score\": 2.5 },
+    { \"id\": \"P4\",  \"criterio\": \"Identificación de la necesidad\",\"question\": \"En llamadas de seguimiento/validación/estatus, ¿el gestor pregunta si es incidente o solicitud Y solicita el número de folio?\",                                                             \"correct\": true,  \"score\": 7.5 },
+    { \"id\": \"P5\",  \"criterio\": \"Identificación de la necesidad\",\"question\": \"¿El gestor realiza preguntas para identificar el reporte? (falla general o agente, desde cuándo, IP del equipo)\",                                                                          \"correct\": true,  \"score\": 7.5 },
+    { \"id\": \"P6\",  \"criterio\": \"Identificación de la necesidad\",\"question\": \"Si el usuario desea transferencia con analista, ¿el gestor pregunta tipo (incidente/solicitud), folio y qué necesita del folio?\",                                                          \"correct\": true,  \"score\": 7.5 },
+    { \"id\": \"P7\",  \"criterio\": \"Identificación de la necesidad\",\"question\": \"Si el usuario pide tiempo de resolución, ¿el gestor responde que será resuelto 'a la brevedad posible'?\",                                                                                  \"correct\": true,  \"score\": 7.5 },
+    { \"id\": \"P8\",  \"criterio\": \"Escucha activa\",               \"question\": \"¿El gestor usa tono de voz claro y fluido, sin que el usuario se queje de no escucharle?\",                                                                                                  \"correct\": true,  \"score\": 5   },
+    { \"id\": \"P9\",  \"criterio\": \"Empatía en tono\",              \"question\": \"¿El gestor es amable, empático y utiliza frases como 'gracias', 'por favor' o 'de nada'?\",                                                                                                  \"correct\": true,  \"score\": 5   },
+    { \"id\": \"P10\", \"criterio\": \"Manejo de objeciones\",         \"question\": \"¿El gestor atiende de forma asertiva, evitando respuestas negativas directas?\",                                                                                                             \"correct\": true,  \"score\": 10  },
+    { \"id\": \"P11\", \"criterio\": \"Manejo de objeciones\",         \"question\": \"¿El gestor escucha sin interrumpir, valida la emoción, reformula la solución y mantiene el control de la llamada?\",                                                                         \"correct\": true,  \"score\": 10  },
+    { \"id\": \"P12\", \"criterio\": \"Manejo de objeciones\",         \"question\": \"¿El gestor evita frases como 'no sé', 'no puedo', 'desconozco', 'el proceso dice', 'tiene que', 'eso no procede'?\",                                                                        \"correct\": true,  \"score\": 10  },
+    { \"id\": \"P13\", \"criterio\": \"Ofrecimiento de solución\",     \"question\": \"¿El gestor retoma la llamada en menos de 1 minuto cuando pone al usuario en espera?\",                                                                                                       \"correct\": true,  \"score\": 7.5 },
+    { \"id\": \"P14\", \"criterio\": \"Ofrecimiento de solución\",     \"question\": \"¿El gestor comparte el estatus del folio consultado en Ivanti en menos de 3 minutos?\",                                                                                                     \"correct\": true,  \"score\": 7.5 },
+    { \"id\": \"P15\", \"criterio\": \"Cierre y despedida\",           \"question\": \"¿El gestor se despide y pregunta si puede ayudar en algo más?\",                                                                                                                            \"correct\": true,  \"score\": 5   }
+  ],
+  \"puntuacion_final\": 0,
+  \"recomendacion\": \"\"
+}"

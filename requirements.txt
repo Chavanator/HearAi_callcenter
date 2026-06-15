@@ -1,0 +1,21 @@
+# Core
+anthropic>=0.49.0
+google-generativeai>=0.8.0
+openai>=1.0.0
+
+# Audio processing
+SpeechRecognition>=3.10.0
+pydub>=0.25.1
+
+# Databases
+pyodbc>=5.1.0
+pymongo>=4.7.0
+
+# Network
+websocket-client>=1.8.0
+
+# System
+psutil>=5.9.0
+
+# STT (optional)
+# elevenlabs>=1.0.0  # Uncomment if using ElevenLabs Scribe

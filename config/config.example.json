@@ -1,0 +1,122 @@
+{
+  "_comment": "Copy this file to config.json and fill in your values. NEVER commit config.json to version control.",
+
+  "source": {
+    "mongo_db": false,
+    "csv": false,
+    "folder": true,
+    "sql": false,
+    "web_socket": false
+  },
+
+  "mongo_db": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "your_database",
+    "collection": "your_collection",
+    "audio_field": "directorio"
+  },
+
+  "csv": {
+    "path": "",
+    "delimiter": ",",
+    "encoding": "utf-8"
+  },
+
+  "folder": {
+    "path": "./data/sample"
+  },
+
+  "web_socket": {
+    "host": "0.0.0.0",
+    "port": 15001
+  },
+
+  "ai_provider": "claude",
+  "stt_provider": "google",
+
+  "elevenlabs_stt": {
+    "api_key": "",
+    "model": "scribe_v2",
+    "channel_labels": { "0": "AGENTE", "1": "CLIENTE" },
+    "keyterms": [],
+    "keyterms_file": ""
+  },
+
+  "claude": {
+    "api_key": "",
+    "model": "claude-haiku-4-5-20251001",
+    "max_tokens": 4096
+  },
+
+  "Gemini": {
+    "api_key": "",
+    "model": "models/gemini-2.0-flash-exp"
+  },
+
+  "prompt_analysis": "./prompts/analysis/default.txt",
+  "prompt_sentiment": "./prompts/sentiment/default.txt",
+  "prompt_separation": "./prompts/separation/default.txt",
+  "diccionario": "./dictionary/keyterms.txt",
+  "diccionario_enabled": false,
+
+  "db_connection": "DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;DATABASE=your_database;UID=your_user;PWD=your_password",
+
+  "transcription_output": {
+    "path": "./data/results",
+    "language": "es-MX",
+    "alt_lan": "es-ES",
+    "segment_seconds": 30,
+    "name_format": "{stem}_{date}_{time}",
+    "noise_handling": {
+      "fresh_recognizer": true,
+      "energy_threshold": 2000,
+      "dynamic_energy": true,
+      "damping": 0.1,
+      "ratio": 1.1,
+      "pause_threshold": 0.8,
+      "proportional_factor": 0.08,
+      "calibration_min": 0.15,
+      "calibration_max": 2.0
+    }
+  },
+
+  "token_limits": {
+    "monthly_limit": 1000000,
+    "warning_threshold": 0.8,
+    "check_enabled": true
+  },
+
+  "processing_features": {
+    "transcription_enabled": true,
+    "separation_enabled": true,
+    "analysis_enabled": true,
+    "sentiment_enabled": true
+  },
+
+  "min_audio_duration_seconds": 30,
+
+  "output_destinations": {
+    "separacion": { "local_json": true, "csv": false, "mongo_db": false, "web_socket": false },
+    "analisis": { "local_json": true, "csv": false, "mongo_db": false, "web_socket": false },
+    "sentimiento": { "local_json": true, "csv": false, "mongo_db": false, "web_socket": false }
+  },
+
+  "output": {
+    "path": "./data/results",
+    "results_csv": "./data/results/results.csv",
+    "extra_destinations": []
+  },
+
+  "sql_polling": {
+    "enabled": false,
+    "transcription": { "sp_get_pending": "GetPendingTranscription", "poll_interval_seconds": 15, "max_records_per_batch": 5, "max_retries": 1 },
+    "analysis": { "sp_get_pending": "GetPendingAnalisys", "poll_interval_seconds": 30, "max_records_per_batch": 2, "max_retries": 3 },
+    "sentiment": { "sp_get_pending": "GetPendingFeeling", "poll_interval_seconds": 15, "max_records_per_batch": 2, "max_retries": 3 },
+    "sp_get_monthly_tokens": "GetTokensUsedByMonth"
+  },
+
+  "log": { "path": "./logs", "level": "INFO", "console": true },
+  "retry_time": 5,
+  "debug_mode": { "enabled": false, "wav_file": "" }
+}
