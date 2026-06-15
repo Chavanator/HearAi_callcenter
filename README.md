@@ -126,11 +126,7 @@ call-quality-analyzer/
 - **PyODBC** — SQL Server connectivity
 - **PyMongo** — MongoDB connectivity
 
-## License
 
-MIT License — see [LICENSE](LICENSE)
-
-## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
